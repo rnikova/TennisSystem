@@ -4,10 +4,20 @@ namespace TennisSystem.Domain.Models.Tournaments
 {
     public class TournamentType : ValueObject
     {
-        public TournamentPoints TournamentPoints { get; } = default!;
+        internal TournamentType(
+            TournamentPoints tournamentPoints,
+            Surface surface,
+            Event @event)
+        {
+            this.TournamentPoints = tournamentPoints;
+            this.Surface = surface;
+            this.Event = @event;
+        }
 
-        public Surface Surface { get; } = default!;
+        public TournamentPoints TournamentPoints { get; }
 
-        public Event Event { get; } = default!;
+        public Surface Surface { get; }
+
+        public Event Event { get; }
     }
 }

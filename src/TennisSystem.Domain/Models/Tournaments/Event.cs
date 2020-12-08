@@ -9,8 +9,13 @@ namespace TennisSystem.Domain.Models.Tournaments
         public static readonly Event Double = new Event(3, nameof(Double));
         public static readonly Event Mixed = new Event(3, nameof(Mixed));
 
-        public Event(int value, string name) 
+        private Event(int value, string name) 
             : base(value, name)
+        {
+        }
+
+        private Event(int value)
+            : this(value, FromValue<Event>(value).Name)
         {
         }
     }

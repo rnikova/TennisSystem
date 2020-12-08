@@ -1,6 +1,5 @@
 ﻿namespace CarRentalSystem.Domain.Common
 {
-    using System;
     using Exceptions;
 
     public static class Guard

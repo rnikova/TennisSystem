@@ -9,8 +9,13 @@ namespace TennisSystem.Domain.Models.Tournaments
         public static readonly TournamentPoints t500 = new TournamentPoints(3, nameof(t500));
         public static readonly TournamentPoints t250 = new TournamentPoints(4, nameof(t250));
 
-        public TournamentPoints(int value, string name) 
+        private TournamentPoints(int value, string name) 
             : base(value, name)
+        {
+        }
+
+        private TournamentPoints(int value)
+            : this(value, FromValue<TournamentPoints>(value).Name)
         {
         }
     }

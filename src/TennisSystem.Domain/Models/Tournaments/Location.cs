@@ -4,8 +4,16 @@ namespace TennisSystem.Domain.Models.Tournaments
 {
     public class Location : ValueObject
     {
-        public string Country { get; } = default!;
+        internal Location(
+            string country,
+            string city)
+        {
+            this.Country = country;
+            this.City = city;
+        }
 
-        public string City { get; } = default!;
+        public string Country { get; }
+
+        public string City { get; }
     }
 }

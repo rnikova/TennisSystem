@@ -9,18 +9,27 @@ namespace TennisSystem.Domain.Models.Tournaments
     {
         private readonly HashSet<Player> players;
 
-        public Tournament()
+        internal Tournament(
+            string name,
+            decimal prize,
+            Location location,
+            TournamentType tournamentType)
         {
+            this.Name = name;
+            this.Prize = prize;
+            this.Location = location;
+            this.TournamentType = tournamentType;
+
             this.players = new HashSet<Player>();
         }
 
-        public string Name { get; private set; } = default!;
+        public string Name { get; private set; }
 
-        public decimal Price { get; private set; }
+        public decimal Prize { get; private set; }
 
-        public Location Location { get; private set; } = default!;
+        public Location Location { get; private set; }
 
-        public TournamentType TournamentType { get; private set; } = default!;
+        public TournamentType TournamentType { get; private set; }
 
         public IReadOnlyCollection<Player> Players => this.players.ToList().AsReadOnly();
     }
