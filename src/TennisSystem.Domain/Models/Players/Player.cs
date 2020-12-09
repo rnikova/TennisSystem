@@ -1,20 +1,25 @@
-﻿using CarRentalSystem.Domain.Common;
-using System.Collections.Generic;
-using System.Linq;
-using TennisSystem.Domain.Models.Tournaments;
-
-namespace TennisSystem.Domain.Models.Players
+﻿namespace TennisSystem.Domain.Models.Players
 {
+    using TennisSystem.Domain.Common;
+    using System.Collections.Generic;
+    using System.Linq;
+    using TennisSystem.Domain.Models.Tournaments;
+    using TennisSystem.Domain.Exceptions;
+
+    using static ModelConstants.Player;
+
     public class Player : Entity<int>, IAggregateRoot
     {
         private readonly HashSet<Tournament> tournaments;
 
-        internal Player(
+        public Player(
             string name,
             string coach,
             Characteristics characteristics,
             Stats stats)
         {
+            this.Validate(name, coach);
+
             this.Name = name;
             this.Coach = coach;
             this.Characteristics = characteristics;
@@ -32,5 +37,20 @@ namespace TennisSystem.Domain.Models.Players
         public Stats Stats { get; private set; }
 
         public IReadOnlyCollection<Tournament> Tournaments => this.tournaments.ToList().AsReadOnly();
+
+        private void Validate(string name, string coach)
+        {
+            Guard.ForStringLength<InvalidPlayerException>(
+                name,
+                MinNameLength,
+                MaxNameLength,
+                nameof(this.Name));
+
+            Guard.ForStringLength<InvalidTournamentException>(
+                coach,
+                MinNameLength,
+                MaxNameLength,
+                nameof(this.Coach));
+        }
     }
 }

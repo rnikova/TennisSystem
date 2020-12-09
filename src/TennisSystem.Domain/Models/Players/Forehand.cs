@@ -1,7 +1,7 @@
-﻿using CarRentalSystem.Domain.Common;
-
-namespace TennisSystem.Domain.Models.Players
+﻿namespace TennisSystem.Domain.Models.Players
 {
+    using TennisSystem.Domain.Common;
+
     public class Forehand : Enumeration
     {
         public static readonly Forehand RightHanded = new Forehand(1, nameof(RightHanded));

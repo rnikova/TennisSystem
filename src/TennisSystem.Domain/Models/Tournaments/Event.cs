@@ -1,7 +1,7 @@
-﻿using CarRentalSystem.Domain.Common;
-
-namespace TennisSystem.Domain.Models.Tournaments
+﻿namespace TennisSystem.Domain.Models.Tournaments
 {
+    using TennisSystem.Domain.Common;
+
     public class Event : Enumeration
     {
         public static readonly Event ATP = new Event(1, nameof(ATP));
@@ -9,7 +9,7 @@ namespace TennisSystem.Domain.Models.Tournaments
         public static readonly Event Double = new Event(3, nameof(Double));
         public static readonly Event Mixed = new Event(3, nameof(Mixed));
 
-        private Event(int value, string name) 
+        private Event(int value, string name)
             : base(value, name)
         {
         }

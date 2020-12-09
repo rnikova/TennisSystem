@@ -1,4 +1,4 @@
-﻿namespace CarRentalSystem.Domain.Exceptions
+﻿namespace TennisSystem.Domain.Exceptions
 {
     using System;
 

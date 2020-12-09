@@ -1,7 +1,7 @@
-﻿using CarRentalSystem.Domain.Common;
-
-namespace TennisSystem.Domain.Models.Tournaments
+﻿namespace TennisSystem.Domain.Models.Tournaments
 {
+    using TennisSystem.Domain.Common;
+
     public class TournamentPoints : Enumeration
     {
         public static readonly TournamentPoints GrandSlam = new TournamentPoints(1, nameof(GrandSlam));
@@ -9,7 +9,7 @@ namespace TennisSystem.Domain.Models.Tournaments
         public static readonly TournamentPoints t500 = new TournamentPoints(3, nameof(t500));
         public static readonly TournamentPoints t250 = new TournamentPoints(4, nameof(t250));
 
-        private TournamentPoints(int value, string name) 
+        private TournamentPoints(int value, string name)
             : base(value, name)
         {
         }

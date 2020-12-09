@@ -1,7 +1,7 @@
-﻿using CarRentalSystem.Domain.Common;
-
-namespace TennisSystem.Domain.Models.Tournaments
+﻿namespace TennisSystem.Domain.Models.Tournaments
 {
+    using TennisSystem.Domain.Common;
+
     public class TournamentType : ValueObject
     {
         internal TournamentType(
