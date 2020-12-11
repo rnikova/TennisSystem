@@ -17,7 +17,10 @@
             int rank,
             int points)
         {
-            this.Validate(win, loss, rank, points);
+            this.ValidateWin(win);
+            this.ValidateLoss(loss);
+            this.ValidateRank(rank);
+            this.ValidatePoints(points);
 
             this.Win = win;
             this.Loss = loss;
@@ -37,26 +40,50 @@
 
         public IReadOnlyCollection<Title> Titles => this.titles.ToList().AsReadOnly();
 
-        private void Validate(int win, int loss, int rank, int points)
+        public void AddTitle(Title title) => this.titles.Add(title);
+
+        public Stats Update(int win, int loss, int rank, int points)
+        {
+            this.ValidateWin(win);
+            this.ValidateLoss(loss);
+
+            this.Win += win;
+            this.Loss += loss;
+            this.Rank += rank;
+            this.Points += points;
+
+            return this;
+        }
+
+        private void ValidateWin(int win)
         {
             Guard.AgainstOutOfRange<InvalidPlayerException>(
                 win,
                 MinWin,
                 MaxWin,
                 nameof(this.Win));
+        }
 
+        private void ValidateLoss(int loss)
+        {
             Guard.AgainstOutOfRange<InvalidPlayerException>(
                 loss,
                 MinLoss,
                 MaxLoss,
                 nameof(this.Loss));
-            
+        }
+
+        private void ValidateRank(int rank)
+        {
             Guard.AgainstOutOfRange<InvalidPlayerException>(
                 rank,
                 MinRank,
                 MaxRank,
                 nameof(this.Rank));
-            
+        }
+
+        private void ValidatePoints(int points)
+        {
             Guard.AgainstOutOfRange<InvalidPlayerException>(
                 points,
                 MinPoints,

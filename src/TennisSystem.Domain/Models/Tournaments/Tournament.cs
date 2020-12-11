@@ -39,6 +39,10 @@
 
         public IReadOnlyCollection<Player> Players => this.players.ToList().AsReadOnly();
 
+        public void AddPlayer(Player player) => this.players.Add(player);
+
+        public void RemovePlayer(Player player) => this.players.Remove(player);
+
         private void Validate(string name, decimal prize)
         {
             Guard.ForStringLength<InvalidTournamentException>(
