@@ -48,13 +48,13 @@
                 MaxLocationLength,
                 nameof(this.Country));
 
-            Guard.AgainstOutOfRange<InvalidTournamentException>(
+            Guard.AgainstOutOfRange<InvalidPlayerException>(
                 weight,
                 MinWeight,
                 MaxWeight,
                 nameof(this.Weight));
             
-            Guard.AgainstOutOfRange<InvalidTournamentException>(
+            Guard.AgainstOutOfRange<InvalidPlayerException>(
                 heigth,
                 MinHeight,
                 MaxHeight,

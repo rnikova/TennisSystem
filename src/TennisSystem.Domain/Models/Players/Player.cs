@@ -88,7 +88,7 @@
 
         private void ValidateCoach(string coach)
         {
-            Guard.ForStringLength<InvalidTournamentException>(
+            Guard.ForStringLength<InvalidPlayerException>(
                 coach,
                 MinNameLength,
                 MaxNameLength,

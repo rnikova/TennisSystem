@@ -14,7 +14,7 @@
             public const int MaxNameLength = 40;
             public const int MinAge = 16;
             public const int MaxAge = 70;
-            public const double MinWeight = 40;
+            public const double MinWeight = 40.0;
             public const double MaxWeight = 100.0;
             public const double MinHeight = 140.0;
             public const double MaxHeight = 240.0;
@@ -41,13 +41,13 @@
         public class Stats
         {
             public const int MinWin = 0;
-            public const int MaxWin = 50;
+            public const int MaxWin = 55;
             public const int MinLoss = 0;
-            public const int MaxLoss = 50;
+            public const int MaxLoss = 55;
             public const int MinRank = 0;
             public const int MaxRank = 1000;
             public const int MinPoints = 0;
-            public const int MaxPoints = 2000;
+            public const int MaxPoints = 15000;
         }
     }
 }
