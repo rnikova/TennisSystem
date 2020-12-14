@@ -22,24 +22,7 @@
         {
             Action act = () => new Player(
                 "",
-                "Coach",
-                new Characteristics(
-                    22,
-                    "Bulgaria",
-                    70,
-                    177.0,
-                    new Play(Forehand.LeftHanded, Backhand.OneHanded)),
-                new Stats(20, 10, 4, 3000));
-
-            act.Should().Throw<InvalidPlayerException>();
-        }
-        
-        [Fact]
-        public void InvalidCoachShouldThrowException()
-        {
-            Action act = () => new Player(
-                "Name",
-                "",
+                new Coach("Coach"),
                 new Characteristics(
                     22,
                     "Bulgaria",

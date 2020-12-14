@@ -10,7 +10,7 @@
         public object? Create(Type type) => new Player
         (
             "Name",
-            "Coach",
+            new Coach("Coach"),
             new Characteristics(
                 20,
                 "Bulgaria",

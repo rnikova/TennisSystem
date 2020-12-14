@@ -12,14 +12,13 @@
     {
         private readonly HashSet<Tournament> tournaments;
 
-        public Player(
+        internal Player(
             string name,
-            string coach,
+            Coach coach,
             Characteristics characteristics,
             Stats stats)
         {
             this.ValidateName(name);
-            this.ValidateCoach(coach);
 
             this.Name = name;
             this.Coach = coach;
@@ -31,7 +30,7 @@
 
         public string Name { get; private set; }
 
-        public string Coach { get; private set; }
+        public Coach Coach { get; private set; }
 
         public Characteristics Characteristics { get; private set; }
 
@@ -46,13 +45,6 @@
         public Player UpdateName(string name)
         {
             ValidateName(name);
-
-            return this;
-        }
-
-        public Player UpdateCoach(string coach)
-        {
-            ValidateName(coach);
 
             return this;
         }
@@ -84,15 +76,6 @@
                 MinNameLength,
                 MaxNameLength,
                 nameof(this.Name));
-        }
-
-        private void ValidateCoach(string coach)
-        {
-            Guard.ForStringLength<InvalidPlayerException>(
-                coach,
-                MinNameLength,
-                MaxNameLength,
-                nameof(this.Coach));
         }
     }
 }

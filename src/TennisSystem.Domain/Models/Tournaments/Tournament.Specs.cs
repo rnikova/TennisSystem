@@ -4,7 +4,6 @@
     using FluentAssertions;
     using System;
     using TennisSystem.Domain.Exceptions;
-    using TennisSystem.Domain.Models.Players;
     using Xunit;
 
     public class TournamentSpecs
@@ -49,21 +48,21 @@
         public void AddPlayerShoudAddPlayerCorrectly()
         {
             var tournament = A.Dummy<Tournament>();
-            var player = A.Dummy<Player>();
-            tournament.AddPlayer(player);
+            var match = A.Dummy<Match>();
+            tournament.AddMatch(match);
 
-            tournament.Players.Count.Should().Be(1);
+            tournament.Matches.Count.Should().Be(1);
         }
         
         [Fact]
         public void RemovePlayerShoudRemovePlayerCorrectly()
         {
             var tournament = A.Dummy<Tournament>();
-            var player = A.Dummy<Player>();
-            tournament.AddPlayer(player);
-            tournament.RemovePlayer(player);
+            var match = A.Dummy<Match>();
+            tournament.AddMatch(match);
+            tournament.RemoveMatch(match);
 
-            tournament.Players.Count.Should().Be(0);
+            tournament.Matches.Count.Should().Be(0);
         }
     }
 }

@@ -4,16 +4,15 @@
     using System.Collections.Generic;
     using TennisSystem.Domain.Common;
     using TennisSystem.Domain.Exceptions;
-    using TennisSystem.Domain.Models.Players;
 
     using static ModelConstants.Tournament;
     using static ModelConstants.Common;
 
     public class Tournament : Entity<int>, IAggregateRoot
     {
-        private readonly HashSet<Player> players;
+        private readonly HashSet<Match> matches;
 
-        public Tournament(
+        internal Tournament(
             string name,
             decimal prize,
             Location location,
@@ -26,7 +25,7 @@
             this.Location = location;
             this.TournamentType = tournamentType;
 
-            this.players = new HashSet<Player>();
+            this.matches = new HashSet<Match>();
         }
 
         public string Name { get; private set; }
@@ -37,11 +36,11 @@
 
         public TournamentType TournamentType { get; private set; }
 
-        public IReadOnlyCollection<Player> Players => this.players.ToList().AsReadOnly();
+        public IReadOnlyCollection<Match> Matches => this.matches.ToList().AsReadOnly();
 
-        public void AddPlayer(Player player) => this.players.Add(player);
+        public void AddMatch(Match match) => this.matches.Add(match);
 
-        public void RemovePlayer(Player player) => this.players.Remove(player);
+        public void RemoveMatch(Match match) => this.matches.Remove(match);
 
         private void Validate(string name, decimal prize)
         {
