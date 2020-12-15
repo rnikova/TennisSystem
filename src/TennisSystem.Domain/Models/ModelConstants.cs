@@ -49,5 +49,11 @@
             public const int MinPoints = 0;
             public const int MaxPoints = 15000;
         }
+
+        public class MatchResult
+        {
+            public const int MinPoints = 0;
+            public const int MaxPoints = int.MaxValue;
+        }
     }
 }

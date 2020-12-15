@@ -10,9 +10,8 @@
 
         public object? Create(Type type) => new Match
         (
-            new Player(
+            new Participant(
                 "name",
-                new Coach("coach"),
                 new Characteristics(
                     22,
                     "Country",
@@ -20,9 +19,8 @@
                     175,
                     new Play(Forehand.LeftHanded, Backhand.OneHanded)),
                 new Stats(20, 10, 3, 1200)),
-            new Player(
+            new Participant(
                 "name",
-                new Coach("coach"),
                 new Characteristics(
                     22,
                     "Country",
