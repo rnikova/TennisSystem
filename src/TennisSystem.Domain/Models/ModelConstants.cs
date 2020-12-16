@@ -55,5 +55,15 @@
             public const int MinPoints = 0;
             public const int MaxPoints = int.MaxValue;
         }
+
+        public class Statistic
+        {
+            public const int MinAces = 0;
+            public const int MaxAces = int.MaxValue;
+            public const int MinDoubleFaults = 0;
+            public const int MaxDoubleFaults = int.MaxValue;
+            public const int MinBreakPoints = 0;
+            public const int MaxBreakPoints = int.MaxValue;
+        }
     }
 }

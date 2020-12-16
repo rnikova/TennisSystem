@@ -10,18 +10,15 @@
         internal Stats(
             int win,
             int loss,
-            int rank,
-            int points)
+            int rank)
         {
             this.ValidateWin(win);
             this.ValidateLoss(loss);
             this.ValidateRank(rank);
-            this.ValidatePoints(points);
 
             this.Win = win;
             this.Loss = loss;
             this.Rank = rank;
-            this.Points = points;
         }
 
         public int Win { get; private set; }
@@ -30,9 +27,7 @@
 
         public int Rank { get; private set; }
 
-        public int Points { get; private set; }
-
-        public Stats Update(int win, int loss, int rank, int points)
+        public Stats Update(int win, int loss, int rank)
         {
             this.ValidateWin(win);
             this.ValidateLoss(loss);
@@ -40,7 +35,6 @@
             this.Win += win;
             this.Loss += loss;
             this.Rank += rank;
-            this.Points += points;
 
             return this;
         }
@@ -70,15 +64,6 @@
                 MinRank,
                 MaxRank,
                 nameof(this.Rank));
-        }
-
-        private void ValidatePoints(int points)
-        {
-            Guard.AgainstOutOfRange<InvalidTournamentException>(
-                points,
-                MinPoints,
-                MaxPoints,
-                nameof(this.Points));
         }
     }
 }

@@ -25,17 +25,16 @@
 
         public Participant UpdateName(string name)
         {
-            ValidateName(name);
+            this.ValidateName(name);
 
             return this;
         }
 
         public Participant UpdateStats(int win,
             int loss,
-            int rank,
-            int points)
+            int rank)
         {
-            this.Stats = new Stats(win, loss, rank, points);
+            this.Stats = new Stats(win, loss, rank);
 
             return this;
         }
