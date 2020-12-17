@@ -12,6 +12,8 @@
             Characteristics characteristics,
             Stats stats)
         {
+            this.ValidateName(name);
+
             this.Name = name;
             this.Characteristics = characteristics;
             this.Stats = stats;

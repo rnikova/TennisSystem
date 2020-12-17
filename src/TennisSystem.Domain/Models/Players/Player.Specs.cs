@@ -4,7 +4,6 @@
     using FluentAssertions;
     using System;
     using TennisSystem.Domain.Exceptions;
-    using TennisSystem.Domain.Models.Tournaments;
     using Xunit;
 
     public class PlayerSpecs

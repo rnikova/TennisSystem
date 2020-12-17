@@ -3,7 +3,6 @@
     using TennisSystem.Domain.Common;
     using System.Collections.Generic;
     using System.Linq;
-    using TennisSystem.Domain.Models.Tournaments;
     using TennisSystem.Domain.Exceptions;
 
     using static ModelConstants.Player;

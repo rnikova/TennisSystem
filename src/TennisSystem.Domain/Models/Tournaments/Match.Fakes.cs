@@ -18,7 +18,7 @@
                     70,
                     175,
                     new Play(Forehand.LeftHanded, Backhand.OneHanded)),
-                new Stats(20, 10, 3, 1200)),
+                new Stats(10, 8, 20)),
             new Participant(
                 "name",
                 new Characteristics(
@@ -27,7 +27,7 @@
                     70,
                     175,
                     new Play(Forehand.LeftHanded, Backhand.OneHanded)),
-                new Stats(10, 15, 20, 700))
+                new Stats(20, 5, 6))
         );
 
         public Priority Priority => Priority.Default;
