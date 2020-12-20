@@ -6,9 +6,9 @@
     using static ModelConstants.Player;
     using static ModelConstants.Statistic;
 
-    public class Player : ValueObject
+    public class Participator : ValueObject
     {
-        internal Player(string name, int aces, int doubleFaults, int breakPoints)
+        internal Participator(string name, int aces, int doubleFaults, int breakPoints)
         {
             this.ValidateName(name);
             this.ValidateAces(aces);
@@ -29,7 +29,7 @@
 
         public int BreakPoints { get; private set; }
 
-        public Player Update(int aces, int doubleFaults, int breakPoints)
+        public Participator Update(int aces, int doubleFaults, int breakPoints)
         {
             this.ValidateAces(aces);
             this.ValidateDoubleFaults(doubleFaults);

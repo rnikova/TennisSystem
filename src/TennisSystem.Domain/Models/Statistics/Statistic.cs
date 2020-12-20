@@ -6,21 +6,21 @@
 
     public class Statistic : Entity<int>, IAggregateRoot
     {
-        private readonly HashSet<Player> men;
-        private readonly HashSet<Player> women;
+        private readonly HashSet<Participator> men;
+        private readonly HashSet<Participator> women;
 
         internal Statistic()
         {
-            this.men = new HashSet<Player>();
-            this.women = new HashSet<Player>();
+            this.men = new HashSet<Participator>();
+            this.women = new HashSet<Participator>();
         }
 
-        public IReadOnlyCollection<Player> Men => this.men.ToList().AsReadOnly();
+        public IReadOnlyCollection<Participator> Men => this.men.ToList().AsReadOnly();
 
-        public IReadOnlyCollection<Player> Women => this.women.ToList().AsReadOnly();
+        public IReadOnlyCollection<Participator> Women => this.women.ToList().AsReadOnly();
 
-        public void AddMan(Player player) => this.men.Add(player);
+        public void AddMan(Participator player) => this.men.Add(player);
 
-        public void AddWoman(Player player) => this.women.Add(player);
+        public void AddWoman(Participator player) => this.women.Add(player);
     }
 }

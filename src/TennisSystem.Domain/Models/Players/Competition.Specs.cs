@@ -6,12 +6,12 @@
     using TennisSystem.Domain.Exceptions;
     using Xunit;
 
-    public class TournamentSpecs
+    public class CompetitionSpecs
     {
         [Fact]
         public void ValidTournamentShouldNotThrowException()
         {
-            Action act = () => A.Dummy<Tournament>();
+            Action act = () => A.Dummy<Competition>();
 
             act.Should().NotThrow<InvalidPlayerException>();
         }
@@ -19,10 +19,10 @@
         [Fact]
         public void InvalidNameShouldThrowException()
         {
-            Action act = () => new Tournament(
+            Action act = () => new Competition(
                 "",
                 20000.0m,
-                new TournamentType(TournamentPoints.t250,
+                new CompetitionType(CompetitionPoints.t250,
                 Surface.Hard,
                 Event.ATP));
 
@@ -32,10 +32,10 @@
         [Fact]
         public void InvalidPrizeShouldThrowException()
         {
-            Action act = () => new Tournament(
+            Action act = () => new Competition(
                 "Sofia",
                 -1,
-                new TournamentType(TournamentPoints.t250,
+                new CompetitionType(CompetitionPoints.t250,
                 Surface.Hard,
                 Event.ATP));
 

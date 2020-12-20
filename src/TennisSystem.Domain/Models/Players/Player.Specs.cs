@@ -37,7 +37,7 @@
         public void AddTournamentShoudAddTournamentCorrectly()
         {
             var player = A.Dummy<Player>();
-            var tournament = A.Dummy<Tournament>();
+            var tournament = A.Dummy<Competition>();
             player.AddTournament(tournament);
 
             player.Tournaments.Count.Should().Be(1);
@@ -47,7 +47,7 @@
         public void RemoveTournamentShoudRemoveTournamentCorrectly()
         {
             var player = A.Dummy<Player>();
-            var tournament = A.Dummy<Tournament>();
+            var tournament = A.Dummy<Competition>();
 
             player.AddTournament(tournament);
             player.RemoveTournament(tournament);

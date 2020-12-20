@@ -9,7 +9,7 @@
 
     public class Player : Entity<int>, IAggregateRoot
     {
-        private readonly HashSet<Tournament> tournaments;
+        private readonly HashSet<Competition> competitions;
 
         internal Player(
             string name,
@@ -24,7 +24,7 @@
             this.Characteristics = characteristics;
             this.Stats = stats;
 
-            this.tournaments = new HashSet<Tournament>();
+            this.competitions = new HashSet<Competition>();
         }
 
         public string Name { get; private set; }
@@ -35,11 +35,11 @@
 
         public Stats Stats { get; private set; }
 
-        public IReadOnlyCollection<Tournament> Tournaments => this.tournaments.ToList().AsReadOnly();
+        public IReadOnlyCollection<Competition> Competitions => this.competitions.ToList().AsReadOnly();
 
-        public void AddTournament(Tournament tournament) => this.tournaments.Add(tournament);
+        public void AddTournament(Competition tournament) => this.competitions.Add(tournament);
 
-        public void RemoveTournament(Tournament tournament) => this.tournaments.Remove(tournament);
+        public void RemoveTournament(Competition tournament) => this.competitions.Remove(tournament);
 
         public Player UpdateName(string name)
         {

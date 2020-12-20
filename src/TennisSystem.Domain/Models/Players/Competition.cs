@@ -6,12 +6,12 @@
     using static ModelConstants.Tournament;
     using static ModelConstants.Common;
 
-    public class Tournament : ValueObject
+    public class Competition : ValueObject
     {
-        internal Tournament(
+        internal Competition(
                string name,
                decimal prize,
-               TournamentType tournamentType)
+               CompetitionType tournamentType)
         {
             this.Validate(name, prize);
 
@@ -24,7 +24,7 @@
 
         public decimal Prize { get; private set; }
 
-        public TournamentType TournamentType { get; private set; }
+        public CompetitionType TournamentType { get; private set; }
 
         private void Validate(string name, decimal prize)
         {

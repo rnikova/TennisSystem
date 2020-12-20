@@ -2,10 +2,10 @@
 {
     using TennisSystem.Domain.Common;
 
-    public class TournamentType : ValueObject
+    public class CompetitionType : ValueObject
     {
-        internal TournamentType(
-            TournamentPoints tournamentPoints,
+        internal CompetitionType(
+            CompetitionPoints tournamentPoints,
             Surface surface,
             Event @event)
         {
@@ -14,7 +14,7 @@
             this.Event = @event;
         }
 
-        public TournamentPoints TournamentPoints { get; }
+        public CompetitionPoints TournamentPoints { get; }
 
         public Surface Surface { get; }
 

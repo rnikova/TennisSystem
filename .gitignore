@@ -351,3 +351,6 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+/src/TennisSystem.Startup/appsettings.json
+/src/TennisSystem.Startup/appsettings.Development.json
+/src/TennisSystem.Startup/Properties/launchSettings.json
