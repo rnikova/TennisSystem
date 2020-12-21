@@ -2,13 +2,13 @@
 {
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
-    using TennisSystem.Domain.Models.Players;
+    using TennisSystem.Domain.Models.Tournaments;
 
     using static Domain.Models.ModelConstants.Player;
 
-    internal class PlayerConfiguration : IEntityTypeConfiguration<Player>
+    internal class ParticipantConfiguration : IEntityTypeConfiguration<Participant>
     {
-        public void Configure(EntityTypeBuilder<Player> builder)
+        public void Configure(EntityTypeBuilder<Participant> builder)
         {
             builder
                 .HasKey(p => p.Id);
@@ -17,14 +17,6 @@
                 .Property(p => p.Name)
                 .IsRequired()
                 .HasMaxLength(MaxNameLength);
-
-            builder
-                .OwnsOne(p => p.Coach, c =>
-                {
-                    c.WithOwner();
-
-                    c.Property(co => co.Name);
-                });
 
             builder
                 .OwnsOne(p => p.Characteristics, c =>
@@ -44,7 +36,7 @@
                         p.Property(pl => pl.Forehand);
                     });
                 });
-            
+
             builder
                 .OwnsOne(p => p.Stats, s =>
                 {
@@ -52,21 +44,8 @@
 
                     s.Property(w => w.Win);
                     s.Property(w => w.Loss);
-                    s.Property(w => w.Points);
                     s.Property(w => w.Rank);
-
-                    s.OwnsMany(w => w.Titles, t =>
-                    {
-                        t.WithOwner();
-                    });
                 });
-
-            builder
-                .HasMany(p => p.Competitions)
-                .WithOne()
-                .Metadata
-                .PrincipalToDependent
-                .SetField("competitions");
         }
     }
 }

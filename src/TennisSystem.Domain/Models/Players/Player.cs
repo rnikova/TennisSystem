@@ -37,9 +37,9 @@
 
         public IReadOnlyCollection<Competition> Competitions => this.competitions.ToList().AsReadOnly();
 
-        public void AddTournament(Competition tournament) => this.competitions.Add(tournament);
+        public void AddTournament(Competition competition) => this.competitions.Add(competition);
 
-        public void RemoveTournament(Competition tournament) => this.competitions.Remove(tournament);
+        public void RemoveTournament(Competition competition) => this.competitions.Remove(competition);
 
         public Player UpdateName(string name)
         {
