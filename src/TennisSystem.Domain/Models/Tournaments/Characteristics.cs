@@ -24,6 +24,20 @@
             this.Play = play;
         }
 
+        private Characteristics(
+            int age,
+            string country,
+            double weight,
+            double height)
+        {
+            this.Age = age;
+            this.Country = country;
+            this.Weight = weight;
+            this.Height = height;
+
+            this.Play = default!;
+        }
+
         public int Age { get; }
 
         public string Country { get; }

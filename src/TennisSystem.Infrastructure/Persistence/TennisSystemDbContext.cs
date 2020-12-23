@@ -13,17 +13,21 @@
         {
         }
 
-        public DbSet<Coach> Coaches { get; set; } = default!;
+        public DbSet<Coach> Coaches { get; set; } = null!;
 
-        public DbSet<Player> Players { get; set; } = default!;
+        public DbSet<Competition> Competitions { get; set; } = null!;
 
-        public DbSet<Statistic> Statistics { get; set; } = default!;
+        public DbSet<Player> Players { get; set; } = null!;
 
-        public DbSet<Match> Matches { get; set; } = default!;
+        public DbSet<Participator> Participators { get; set; } = null!;
 
-        public DbSet<Participant> Participants { get; set; } = default!;
+        public DbSet<Statistic> Statistics { get; set; } = null!;
 
-        public DbSet<Tournament> Tournaments { get; set; } = default!;
+        public DbSet<Match> Matches { get; set; } = null!;
+
+        public DbSet<Participant> Participants { get; set; } = null!;
+
+        public DbSet<Tournament> Tournaments { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

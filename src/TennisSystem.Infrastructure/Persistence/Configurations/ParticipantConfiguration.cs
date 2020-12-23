@@ -32,8 +32,21 @@
                     {
                         p.WithOwner();
 
-                        p.Property(pl => pl.Backhand);
-                        p.Property(pl => pl.Forehand);
+                        p.OwnsOne(pl => pl.Backhand,
+                            t =>
+                            {
+                                t.WithOwner();
+
+                                t.Property(tr => tr.Value);
+                            });
+
+                        p.OwnsOne(pl => pl.Forehand,
+                            t =>
+                            {
+                                t.WithOwner();
+
+                                t.Property(tr => tr.Value);
+                            });
                     });
                 });
 

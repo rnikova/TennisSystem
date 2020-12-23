@@ -19,12 +19,10 @@
                 .HasMaxLength(MaxNameLength);
 
             builder
-                .OwnsOne(p => p.Coach, c =>
-                {
-                    c.WithOwner();
-
-                    c.Property(co => co.Name);
-                });
+                .HasOne(p => p.Coach)
+                .WithMany()
+                .HasForeignKey("CoachId")
+                .OnDelete(DeleteBehavior.Restrict);
 
             builder
                 .OwnsOne(p => p.Characteristics, c =>
@@ -40,8 +38,21 @@
                     {
                         p.WithOwner();
 
-                        p.Property(pl => pl.Backhand);
-                        p.Property(pl => pl.Forehand);
+                        p.OwnsOne(pl => pl.Backhand,
+                            t =>
+                            {
+                                t.WithOwner();
+
+                                t.Property(tr => tr.Value);
+                            });
+
+                        p.OwnsOne(pl => pl.Forehand,
+                            t =>
+                            {
+                                t.WithOwner();
+
+                                t.Property(tr => tr.Value);
+                            });
                     });
                 });
             

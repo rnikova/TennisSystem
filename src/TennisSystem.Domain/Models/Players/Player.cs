@@ -27,6 +27,18 @@
             this.competitions = new HashSet<Competition>();
         }
 
+        private Player(
+            string name)
+        {
+            this.Name = name;
+
+            this.Coach = default!;
+            this.Characteristics = default!;
+            this.Stats = default!;
+
+            this.competitions = new HashSet<Competition>();
+        }
+
         public string Name { get; private set; }
 
         public Coach Coach { get; private set; }

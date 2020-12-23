@@ -17,6 +17,12 @@
             this.SecondParticipantPoints = secondPartisipantPoints;
         }
 
+        private Set()
+        {
+            this.FirstParticipantPoints = default!;
+            this.SecondParticipantPoints = default!;
+        }
+
         public int FirstParticipantPoints { get; set; }
 
         public int SecondParticipantPoints { get; set; }

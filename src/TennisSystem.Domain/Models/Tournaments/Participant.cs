@@ -19,6 +19,14 @@
             this.Stats = stats;
         }
 
+        private Participant(string name)
+        {
+            this.Name = name;
+
+            this.Characteristics = default!;
+            this.Stats = default!;
+        }
+
         public string Name { get; private set; }
 
         public Characteristics Characteristics { get; private set; }

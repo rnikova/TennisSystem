@@ -28,6 +28,19 @@
             this.matches = new HashSet<Match>();
         }
 
+        private Tournament(
+            string name,
+            decimal prize)
+        {
+            this.Name = name;
+            this.Prize = prize;
+
+            this.Location = default!;
+            this.TournamentType = default!;
+
+            this.matches = new HashSet<Match>();
+        }
+
         public string Name { get; private set; }
 
         public decimal Prize { get; private set; }

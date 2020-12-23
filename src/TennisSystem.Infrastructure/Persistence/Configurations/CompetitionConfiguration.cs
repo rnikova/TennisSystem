@@ -2,42 +2,33 @@
 {
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
-    using TennisSystem.Domain.Models.Tournaments;
+    using TennisSystem.Domain.Models.Players;
 
     using static Domain.Models.ModelConstants.Common;
 
-    internal class TournamentConfiguration : IEntityTypeConfiguration<Tournament>
+    public class CompetitionConfiguration : IEntityTypeConfiguration<Competition>
     {
-        public void Configure(EntityTypeBuilder<Tournament> builder)
+        public void Configure(EntityTypeBuilder<Competition> builder)
         {
             builder
-                .HasKey(t => t.Id);
+                .HasKey(p => p.Id);
 
             builder
-                .Property(t => t.Name)
+                .Property(p => p.Name)
                 .IsRequired()
                 .HasMaxLength(MaxTournamentLength);
 
             builder
-                .Property(t => t.Prize)
-                .IsRequired()
-                .HasColumnType("decimal(18,2)");
+                            .Property(t => t.Prize)
+                            .IsRequired()
+                            .HasColumnType("decimal(18,2)");
 
             builder
-                .OwnsOne(t => t.Location, s =>
+                .OwnsOne(t => t.CompetitionType, s =>
                 {
                     s.WithOwner();
 
-                    s.Property(l => l.Country);
-                    s.Property(l => l.City);
-                });
-            
-            builder
-                .OwnsOne(t => t.TournamentType, s =>
-                {
-                    s.WithOwner();
-
-                    s.OwnsOne(l => l.Event,
+                    s.OwnsOne(l => l.CompetitionPoints,
                         t =>
                         {
                             t.WithOwner();
@@ -53,7 +44,7 @@
                             t.Property(tr => tr.Value);
                         });
 
-                    s.OwnsOne(l => l.TournamentPoints,
+                    s.OwnsOne(l => l.Event,
                         t =>
                         {
                             t.WithOwner();
@@ -61,13 +52,6 @@
                             t.Property(tr => tr.Value);
                         });
                 });
-
-            builder
-               .HasMany(t => t.Matches)
-               .WithOne()
-               .Metadata
-               .PrincipalToDependent
-               .SetField("matches");
         }
     }
 }

@@ -12,6 +12,12 @@ namespace TennisSystem.Domain.Models.Tournaments
             this.Backhand = backhand;
         }
 
+        private Play()
+        {
+            this.Backhand = default!;
+            this.Forehand = default!;
+        }
+
         public Forehand Forehand { get; }
 
         public Backhand Backhand { get; }

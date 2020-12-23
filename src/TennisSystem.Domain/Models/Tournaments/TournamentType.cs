@@ -14,6 +14,13 @@
             this.Event = @event;
         }
 
+        private TournamentType()
+        {
+            this.TournamentPoints = default!;
+            this.Surface = default!;
+            this.Event = default!;
+        }
+
         public TournamentPoints TournamentPoints { get; }
 
         public Surface Surface { get; }

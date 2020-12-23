@@ -18,6 +18,12 @@
             this.Year = year;
         }
 
+        private Title()
+        {
+            this.Tournament = default!;
+            this.Year = default!;
+        }
+
         public string Tournament { get; }
 
         public int Year { get; }

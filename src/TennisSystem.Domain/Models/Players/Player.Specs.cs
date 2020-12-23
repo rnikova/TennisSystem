@@ -40,7 +40,7 @@
             var tournament = A.Dummy<Competition>();
             player.AddTournament(tournament);
 
-            player.Tournaments.Count.Should().Be(1);
+            player.Competitions.Count.Should().Be(1);
         }
 
         [Fact]
@@ -52,7 +52,7 @@
             player.AddTournament(tournament);
             player.RemoveTournament(tournament);
 
-            player.Tournaments.Count.Should().Be(0);
+            player.Competitions.Count.Should().Be(0);
         }
     }
 }

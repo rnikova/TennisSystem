@@ -12,81 +12,25 @@
                 .HasKey(m => m.Id);
 
             builder
-               .OwnsOne(m => m.FirstPlayer, p =>
-               {
-                   p.WithOwner();
-
-                   p.Property(po => po.Name);
-
-                   p.OwnsOne(po => po.Characteristics, pc =>
-                   {
-                       pc.WithOwner();
-
-                       pc.Property(ch => ch.Age);
-                       pc.Property(ch => ch.Country);
-                       pc.Property(ch => ch.Height);
-                       pc.Property(ch => ch.Weight);
-
-                       pc.OwnsOne(ch => ch.Play, p =>
-                       {
-                           p.WithOwner();
-
-                           p.Property(pl => pl.Backhand);
-                           p.Property(pl => pl.Forehand);
-                       });
-                   });
-
-                   p.OwnsOne(p => p.Stats, s =>
-                {
-                    s.WithOwner();
-
-                    s.Property(w => w.Win);
-                    s.Property(w => w.Loss);
-                    s.Property(w => w.Rank);
-                });
-               });
+               .HasOne(m => m.FirstPlayer)
+               .WithMany()
+               .HasForeignKey("ParticipantId")
+               .OnDelete(DeleteBehavior.Restrict);
 
             builder
-               .OwnsOne(m => m.SecondPlayer, p =>
-               {
-                   p.WithOwner();
-
-                   p.Property(po => po.Name);
-
-                   p.OwnsOne(po => po.Characteristics, pc =>
-                   {
-                       pc.WithOwner();
-
-                       pc.Property(ch => ch.Age);
-                       pc.Property(ch => ch.Country);
-                       pc.Property(ch => ch.Height);
-                       pc.Property(ch => ch.Weight);
-
-                       pc.OwnsOne(ch => ch.Play, p =>
-                       {
-                           p.WithOwner();
-
-                           p.Property(pl => pl.Backhand);
-                           p.Property(pl => pl.Forehand);
-                       });
-                   });
-
-                   p.OwnsOne(p => p.Stats, s =>
-                   {
-                       s.WithOwner();
-
-                       s.Property(w => w.Win);
-                       s.Property(w => w.Loss);
-                       s.Property(w => w.Rank);
-                   });
-               });
+               .HasOne(m => m.SecondPlayer)
+               .WithMany()
+               .HasForeignKey("ParticipantId")
+               .OnDelete(DeleteBehavior.Restrict);
 
             builder
-                .HasMany(p => p.Result)
-                .WithOne()
-                .Metadata
-                .PrincipalToDependent
-                .SetField("result");
+                .OwnsMany(m => m.Result,
+                    s =>
+                    {
+                        s.WithOwner();
+                        s.Property(st => st.FirstParticipantPoints);
+                        s.Property(st => st.SecondParticipantPoints);
+                    });
         }
     }
 }

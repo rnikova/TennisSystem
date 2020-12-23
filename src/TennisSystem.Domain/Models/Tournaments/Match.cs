@@ -6,27 +6,35 @@
 
     public class Match : Entity<int>
     {
-        private readonly List<Set> results;
+        private readonly List<Set> result;
 
         internal Match(Participant first, Participant second)
         {
             this.FirstPlayer = first;
             this.SecondPlayer = second;
 
-            this.results = new List<Set>();
+            this.result = new List<Set>();
+        }
+
+        private Match()
+        {
+            this.FirstPlayer = default!;
+            this.SecondPlayer = default!;
+
+            this.result = new List<Set>();
         }
 
         public Participant FirstPlayer { get; private set; }
 
         public Participant SecondPlayer { get; private set; }
 
-        public IReadOnlyCollection<Set> Result => this.results.ToList().AsReadOnly();
+        public IReadOnlyCollection<Set> Result => this.result.ToList().AsReadOnly();
 
         public void UpdateResult(int firstParticipantPoints, int secondPartisipantPoints)
         {
             var set = new Set(firstParticipantPoints, secondPartisipantPoints);
 
-            this.results.Add(set);
+            this.result.Add(set);
         }
     }
 }

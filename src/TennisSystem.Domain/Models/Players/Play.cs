@@ -12,6 +12,12 @@
             this.Backhand = backhand;
         }
 
+        private Play()
+        {
+            this.Forehand = default!;
+            this.Backhand = default!;
+        }
+
         public Forehand Forehand { get; }
 
         public Backhand Backhand { get; }

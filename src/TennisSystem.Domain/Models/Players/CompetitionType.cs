@@ -9,12 +9,19 @@
             Surface surface,
             Event @event)
         {
-            this.TournamentPoints = tournamentPoints;
+            this.CompetitionPoints = tournamentPoints;
             this.Surface = surface;
             this.Event = @event;
         }
 
-        public CompetitionPoints TournamentPoints { get; }
+        private CompetitionType()
+        {
+            this.CompetitionPoints = default!;
+            this.Surface = default!;
+            this.Event = default!;
+        }
+
+        public CompetitionPoints CompetitionPoints { get; }
 
         public Surface Surface { get; }
 

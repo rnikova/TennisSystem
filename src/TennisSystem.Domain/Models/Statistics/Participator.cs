@@ -6,7 +6,7 @@
     using static ModelConstants.Player;
     using static ModelConstants.Statistic;
 
-    public class Participator : ValueObject
+    public class Participator : Entity<int>
     {
         internal Participator(string name, int aces, int doubleFaults, int breakPoints)
         {

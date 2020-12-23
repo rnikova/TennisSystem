@@ -6,7 +6,7 @@
     using static ModelConstants.Tournament;
     using static ModelConstants.Common;
 
-    public class Competition : ValueObject
+    public class Competition : Entity<int>
     {
         internal Competition(
                string name,
@@ -17,14 +17,24 @@
 
             this.Name = name;
             this.Prize = prize;
-            this.TournamentType = tournamentType;
+            this.CompetitionType = tournamentType;
+        }
+
+        private Competition(
+            string name,
+            decimal prize)
+        {
+            this.Name = name;
+            this.Prize = prize;
+
+            this.CompetitionType = default!;
         }
 
         public string Name { get; private set; }
 
         public decimal Prize { get; private set; }
 
-        public CompetitionType TournamentType { get; private set; }
+        public CompetitionType CompetitionType { get; private set; }
 
         private void Validate(string name, decimal prize)
         {
