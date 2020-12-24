@@ -68,7 +68,8 @@
 
                     s.OwnsMany(w => w.Titles, t =>
                     {
-                        t.WithOwner();
+                        t.Property(tr => tr.Tournament);
+                        t.Property(tr => tr.Year);
                     });
                 });
 

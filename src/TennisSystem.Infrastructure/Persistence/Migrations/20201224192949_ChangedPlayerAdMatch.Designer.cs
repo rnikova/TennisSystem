@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TennisSystem.Infrastructure.Persistence;
 
 namespace TennisSystem.Infrastructure.Persistence.Migrations
 {
     [DbContext(typeof(TennisSystemDbContext))]
-    partial class TennisSystemDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201224192949_ChangedPlayerAdMatch")]
+    partial class ChangedPlayerAdMatch
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

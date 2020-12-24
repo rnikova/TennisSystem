@@ -27,7 +27,6 @@
                 .OwnsMany(m => m.Result,
                     s =>
                     {
-                        s.WithOwner();
                         s.Property(st => st.FirstParticipantPoints);
                         s.Property(st => st.SecondParticipantPoints);
                     });
