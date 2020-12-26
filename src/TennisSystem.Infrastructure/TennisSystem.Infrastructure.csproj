@@ -19,8 +19,4 @@
     <ProjectReference Include="..\TennisSystem.Application\TennisSystem.Application.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Identity\" />
-  </ItemGroup>
-
 </Project>
