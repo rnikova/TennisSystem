@@ -10,14 +10,21 @@
     public static class InfrastructureConfiguration
     {
         public static IServiceCollection AddInfrastructure(
-           this IServiceCollection services,
-           IConfiguration configuration)
-           => services
-               .AddDbContext<TennisSystemDbContext>(options => options
-                   .UseSqlServer(
-                       configuration.GetConnectionString("DefaultConnection"),
-                       b => b.MigrationsAssembly(typeof(TennisSystemDbContext)
-                           .Assembly.FullName)))
-               .AddTransient(typeof(IRepository<>), typeof(DataRepository<>));
+            this IServiceCollection services,
+            IConfiguration configuration)
+            => services
+                .AddDatabase(configuration);
+
+        private static IServiceCollection AddDatabase(
+            this IServiceCollection services,
+            IConfiguration configuration)
+            => services
+                .AddDbContext<TennisSystemDbContext>(options => options
+                    .UseSqlServer(
+                        configuration.GetConnectionString("DefaultConnection"),
+                        b => b.MigrationsAssembly(typeof(TennisSystemDbContext)
+                            .Assembly.FullName)))
+                .AddTransient<IInitializer, TennisSystemDbInitializer>()
+                .AddTransient(typeof(IRepository<>), typeof(DataRepository<>));
     }
 }
