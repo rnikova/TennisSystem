@@ -1,4 +1,4 @@
-﻿namespace TennisSystem.Domain.Factories.Statistics
+﻿namespace TennisSystem.Domain.Factories.Tournaments
 {
     using TennisSystem.Domain.Models.Tournaments;
 
@@ -10,7 +10,7 @@
 
         ITournamentFactory WithLocation(Location location);
 
-        ITournamentFactory WithLocation(string contry, string city);
+        ITournamentFactory WithLocation(string country, string city);
 
         ITournamentFactory WithTournamentType(TournamentType tournamentType);
 
