@@ -7,15 +7,12 @@
 
     [ApiController]
     [Route("[controller]")]
-    public class PlayerController : ControllerBase
+    public class PlayerController : ApiController
     {
         private readonly IRepository<Player> players;
 
         public PlayerController(IRepository<Player> players)
             => this.players = players;
 
-        [HttpGet]
-        public IEnumerable<Player> Get()
-            => this.players.All();
     }
 }

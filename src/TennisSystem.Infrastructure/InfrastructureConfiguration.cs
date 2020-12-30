@@ -13,7 +13,8 @@
             this IServiceCollection services,
             IConfiguration configuration)
             => services
-                .AddDatabase(configuration);
+                .AddDatabase(configuration)
+                .AddRepositories();
 
         private static IServiceCollection AddDatabase(
             this IServiceCollection services,
@@ -26,5 +27,14 @@
                             .Assembly.FullName)))
                 .AddTransient<IInitializer, TennisSystemDbInitializer>()
                 .AddTransient(typeof(IRepository<>), typeof(DataRepository<>));
+
+        internal static IServiceCollection AddRepositories(this IServiceCollection services)
+            => services
+                .Scan(scan => scan
+                    .FromCallingAssembly()
+                    .AddClasses(classes => classes
+                        .AssignableTo(typeof(IRepository<>)))
+                    .AsMatchingInterface()
+                    .WithTransientLifetime());
     }
 }
