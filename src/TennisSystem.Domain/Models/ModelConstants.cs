@@ -65,5 +65,11 @@
             public const int MinBreakPoints = 0;
             public const int MaxBreakPoints = int.MaxValue;
         }
+
+        public class User
+        {
+            public const int MinUsernameLength = 3;
+            public const int MaxUsernameLength = 20;
+        }
     }
 }

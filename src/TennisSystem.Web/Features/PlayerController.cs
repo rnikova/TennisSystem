@@ -1,7 +1,6 @@
 ﻿namespace TennisSystem.Web.Features
 {
     using Microsoft.AspNetCore.Mvc;
-    using System.Collections.Generic;
     using TennisSystem.Application.Contracts;
     using TennisSystem.Domain.Models.Players;
 

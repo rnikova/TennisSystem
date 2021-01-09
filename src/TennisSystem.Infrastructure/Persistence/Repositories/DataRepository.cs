@@ -4,7 +4,7 @@
     using TennisSystem.Application.Contracts;
     using TennisSystem.Domain.Common;
 
-    internal abstract class DataRepository<TEntity> : IRepository<TEntity>
+    internal class DataRepository<TEntity> : IRepository<TEntity>
         where TEntity : class, IAggregateRoot
     {
         private readonly TennisSystemDbContext db;
