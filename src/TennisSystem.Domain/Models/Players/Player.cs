@@ -1,16 +1,12 @@
 ﻿namespace TennisSystem.Domain.Models.Players
 {
     using TennisSystem.Domain.Common;
-    using System.Collections.Generic;
-    using System.Linq;
     using TennisSystem.Domain.Exceptions;
 
     using static ModelConstants.Player;
 
     public class Player : Entity<int>, IAggregateRoot
     {
-        private readonly HashSet<Competition> competitions;
-
         internal Player(
             string name,
             Coach coach,
@@ -23,8 +19,6 @@
             this.Coach = coach;
             this.Characteristics = characteristics;
             this.Stats = stats;
-
-            this.competitions = new HashSet<Competition>();
         }
 
         private Player(
@@ -35,8 +29,6 @@
             this.Coach = default!;
             this.Characteristics = default!;
             this.Stats = default!;
-
-            this.competitions = new HashSet<Competition>();
         }
 
         public string Name { get; private set; }
@@ -46,12 +38,6 @@
         public Characteristics Characteristics { get; private set; }
 
         public Stats Stats { get; private set; }
-
-        public IReadOnlyCollection<Competition> Competitions => this.competitions.ToList().AsReadOnly();
-
-        public void AddTournament(Competition competition) => this.competitions.Add(competition);
-
-        public void RemoveTournament(Competition competition) => this.competitions.Remove(competition);
 
         public Player UpdateName(string name)
         {
@@ -73,7 +59,7 @@
             string country,
             double weight,
             double height,
-            Play play)
+            PlayStile play)
         {
             this.Characteristics = new Characteristics(age, country, weight, height, play);
 

@@ -1,10 +1,10 @@
-﻿using TennisSystem.Domain.Common;
-
-namespace TennisSystem.Domain.Models.Tournaments
+﻿namespace TennisSystem.Domain.Models.Players
 {
-    public class Play : ValueObject
+    using TennisSystem.Domain.Common;
+
+    public class PlayStile : ValueObject
     {
-        internal Play(
+        internal PlayStile(
             Forehand forehand,
             Backhand backhand)
         {
@@ -12,10 +12,10 @@ namespace TennisSystem.Domain.Models.Tournaments
             this.Backhand = backhand;
         }
 
-        private Play()
+        private PlayStile()
         {
-            this.Backhand = default!;
             this.Forehand = default!;
+            this.Backhand = default!;
         }
 
         public Forehand Forehand { get; }

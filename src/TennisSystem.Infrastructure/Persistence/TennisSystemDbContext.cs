@@ -5,7 +5,6 @@
     using TennisSystem.Domain.Models.Players;
     using TennisSystem.Domain.Models.Statistics;
     using TennisSystem.Domain.Models.Tournaments;
-    using TennisSystem.Domain.Models.Users;
 
     internal class TennisSystemDbContext : DbContext
     {
@@ -29,8 +28,6 @@
         public DbSet<Participant> Participants { get; set; } = null!;
 
         public DbSet<Tournament> Tournaments { get; set; } = null!;
-
-        public DbSet<Consumer> Users { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

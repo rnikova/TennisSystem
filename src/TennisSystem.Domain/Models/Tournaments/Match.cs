@@ -8,7 +8,7 @@
     {
         private readonly List<Set> result;
 
-        internal Match(Participant first, Participant second)
+        internal Match(int first, int second)
         {
             this.FirstPlayer = first;
             this.SecondPlayer = second;
@@ -24,9 +24,9 @@
             this.result = new List<Set>();
         }
 
-        public Participant FirstPlayer { get; private set; }
+        public int FirstPlayer { get; private set; }
 
-        public Participant SecondPlayer { get; private set; }
+        public int SecondPlayer { get; private set; }
 
         public IReadOnlyCollection<Set> Result => this.result.ToList().AsReadOnly();
 

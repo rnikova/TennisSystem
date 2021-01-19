@@ -10,7 +10,7 @@
         [Fact]
         public void ValidCharacteristicsShouldNotThrowException()
         {
-            var play = new Play(Forehand.RightHanded, Backhand.TwoHanded);
+            var play = new PlayStile(Forehand.RightHanded, Backhand.TwoHanded);
 
             Action act = () => new Characteristics(20, "Bulgaria", 70, 175.0, play);
 
@@ -20,7 +20,7 @@
         [Fact]
         public void InvalidAgeShouldThrowException()
         {
-            var play = new Play(Forehand.RightHanded, Backhand.TwoHanded);
+            var play = new PlayStile(Forehand.RightHanded, Backhand.TwoHanded);
 
             Action act = () => new Characteristics(7, "Bulgaria", 70, 175.0, play);
 
@@ -30,7 +30,7 @@
         [Fact]
         public void InvalidCountryShouldThrowException()
         {
-            var play = new Play(Forehand.RightHanded, Backhand.TwoHanded);
+            var play = new PlayStile(Forehand.RightHanded, Backhand.TwoHanded);
 
             Action act = () => new Characteristics(20, "", 70, 175.0, play);
 
@@ -40,7 +40,7 @@
         [Fact]
         public void InvalidWeightShouldThrowException()
         {
-            var play = new Play(Forehand.RightHanded, Backhand.TwoHanded);
+            var play = new PlayStile(Forehand.RightHanded, Backhand.TwoHanded);
 
             Action act = () => new Characteristics(20, "Bulgaria", 101, 175.0, play);
 
@@ -50,7 +50,7 @@
         [Fact]
         public void InvalidHeightShouldThrowException()
         {
-            var play = new Play(Forehand.RightHanded, Backhand.TwoHanded);
+            var play = new PlayStile(Forehand.RightHanded, Backhand.TwoHanded);
 
             Action act = () => new Characteristics(20, "Bulgaria", 70, 135.0, play);
 

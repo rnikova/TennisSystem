@@ -10,7 +10,7 @@
 
         IPlayerFactory WithCoach(Coach coach);
 
-        IPlayerFactory WithCharacteristics(int age, string country, double weight, double height, Play play);
+        IPlayerFactory WithCharacteristics(int age, string country, double weight, double height, PlayStile play);
 
         IPlayerFactory WithCharacteristics(Characteristics characteristics);
 

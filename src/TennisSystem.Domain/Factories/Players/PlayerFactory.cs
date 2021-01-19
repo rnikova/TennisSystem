@@ -14,7 +14,7 @@
         private bool coachSet = false;
         private bool statsSet = false;
 
-        public IPlayerFactory WithCharacteristics(int age, string country, double weight, double height, Play play) 
+        public IPlayerFactory WithCharacteristics(int age, string country, double weight, double height, PlayStile play) 
             => this.WithCharacteristics(new Characteristics(age, country, weight, height, play));
 
         public IPlayerFactory WithCharacteristics(Characteristics characteristics)

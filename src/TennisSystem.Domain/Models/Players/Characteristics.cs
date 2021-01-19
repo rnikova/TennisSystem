@@ -13,7 +13,7 @@
             string country,
             double weight,
             double height,
-            Play play)
+            PlayStile playStile)
         {
             this.Validate(age, country, weight, height);
 
@@ -21,7 +21,7 @@
             this.Country = country;
             this.Weight = weight;
             this.Height = height;
-            this.Play = play;
+            this.Play = playStile;
         }
 
         private Characteristics(
@@ -46,7 +46,7 @@
 
         public double Height { get; }
 
-        public Play Play { get; }
+        public PlayStile Play { get; }
 
         private void Validate(int age, string country, double weight, double heigth)
         {

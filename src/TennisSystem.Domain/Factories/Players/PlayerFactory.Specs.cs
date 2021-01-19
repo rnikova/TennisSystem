@@ -29,7 +29,7 @@
 
             Action act = () => playerFactory
                 .WithName("Player Name")
-                .WithCharacteristics(19, "Country", 60.2, 183.2, new Play(Forehand.LeftHanded, Backhand.OneHanded))
+                .WithCharacteristics(19, "Country", 60.2, 183.2, new PlayStile(Forehand.LeftHanded, Backhand.OneHanded))
                 .WithStats(10, 20, 33, 2000)
                 .Build();
 
@@ -43,7 +43,7 @@
 
             Action act = () => playerFactory
                 .WithName("Player Name")
-                .WithCharacteristics(19, "Country", 60.2, 183.2, new Play(Forehand.LeftHanded, Backhand.OneHanded))
+                .WithCharacteristics(19, "Country", 60.2, 183.2, new PlayStile(Forehand.LeftHanded, Backhand.OneHanded))
                 .WithCoach("Coach")
                 .Build();
 
@@ -57,7 +57,7 @@
 
             var player = playerFactory
                 .WithName("Player Name")
-                .WithCharacteristics(19, "Country", 60.2, 183.2, new Play(Forehand.LeftHanded, Backhand.OneHanded))
+                .WithCharacteristics(19, "Country", 60.2, 183.2, new PlayStile(Forehand.LeftHanded, Backhand.OneHanded))
                 .WithCoach("Coach")
                 .WithStats(10, 20, 17, 2200)
                 .Build();

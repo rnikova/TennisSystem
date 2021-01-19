@@ -16,7 +16,7 @@
                 "Bulgaria",
                 70,
                 178.0,
-                new Play(Forehand.LeftHanded, Backhand.OneHanded)),
+                new PlayStile(Forehand.LeftHanded, Backhand.OneHanded)),
             new Stats(20, 10, 5, 3000)
         );
 
